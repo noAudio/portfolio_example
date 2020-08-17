@@ -106,7 +106,8 @@ class _MenuState extends State<Menu> {
                   color: kTextColor,
                 ),
               ),
-              Positioned(
+              AnimatedPositioned(
+                duration: Duration(milliseconds: 200),
                 left: 0,
                 right: 0,
                 bottom: selectedIndex == index ? -2 : -32,
