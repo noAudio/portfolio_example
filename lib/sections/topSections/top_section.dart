@@ -78,6 +78,7 @@ class _MenuState extends State<Menu> {
         ),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(
           menuItems.length,
           (index) => buildMenuItem(index),
@@ -86,20 +87,33 @@ class _MenuState extends State<Menu> {
     );
   }
 
-  Widget buildMenuItem(int index) => Container(
-        constraints: BoxConstraints(minWidth: 122.0),
-        height: 100.0,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Text(
-              menuItems[index],
-              style: TextStyle(
-                fontSize: 20.0,
-                color: kTextColor,
+  Widget buildMenuItem(int index) => InkWell(
+        onTap: () {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+        child: Container(
+          constraints: BoxConstraints(minWidth: 122.0),
+          height: 100.0,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Text(
+                menuItems[index],
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: kTextColor,
+                ),
               ),
-            ),
-          ],
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: selectedIndex == index ? -2 : -32,
+                child: Image.asset("images/Hover.png"),
+              ),
+            ],
+          ),
         ),
       );
 }
