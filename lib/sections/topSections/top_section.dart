@@ -36,7 +36,45 @@ class TopSection extends StatelessWidget {
               right: 0,
               child: PersonPic(),
             ),
+            Positioned(
+              bottom: 0,
+              child: Menu(),
+            ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class Menu extends StatefulWidget {
+  @override
+  _MenuState createState() => _MenuState();
+}
+
+class _MenuState extends State<Menu> {
+  int selectedIndex = 0;
+  int hoverIndex = 0;
+  List<String> menuItems = [
+    "Home",
+    "About",
+    "Services",
+    "Portfolio",
+    "Testimonials",
+    "Contact",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding * 2.5),
+      constraints: BoxConstraints(maxWidth: 1110.0),
+      height: 100.0,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
         ),
       ),
     );
