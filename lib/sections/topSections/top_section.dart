@@ -29,13 +29,29 @@ class TopSection extends StatelessWidget {
           top: kDefaultPadding,
         ),
         width: 1200.0,
-        child: Column(
-          children: [
-            Image.asset("images/Logo.png"),
-            GlassContent(size: size),
-          ],
-        ),
+        child: LogoAndBlurWidget(size: size),
       ),
+    );
+  }
+}
+
+class LogoAndBlurWidget extends StatelessWidget {
+  const LogoAndBlurWidget({
+    Key key,
+    @required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Image.asset("images/Logo.png"),
+        Spacer(),
+        GlassContent(size: size),
+        Spacer(flex: 3),
+      ],
     );
   }
 }
