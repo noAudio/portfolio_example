@@ -9,8 +9,8 @@ class TopSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Container(
+      alignment: Alignment.center,
       constraints: BoxConstraints(
         maxHeight: 900.0,
         minHeight: 700.0,
@@ -29,7 +29,22 @@ class TopSection extends StatelessWidget {
           top: kDefaultPadding,
         ),
         width: 1200.0,
-        child: LogoAndBlurBox(size: size),
+        child: Stack(
+          children: [
+            LogoAndBlurBox(size: size),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: Container(
+                constraints: BoxConstraints(
+                  maxWidth: 639.0,
+                  maxHeight: 860.0,
+                ),
+                child: Image.asset("images/person.png"),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -46,6 +61,7 @@ class LogoAndBlurBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image.asset("images/Logo.png"),
         Spacer(),
