@@ -1,9 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio_example/constants.dart';
 
 import 'components/glass_content.dart';
+import 'components/person_pic.dart';
 
 class TopSection extends StatelessWidget {
   @override
@@ -35,13 +34,7 @@ class TopSection extends StatelessWidget {
             Positioned(
               bottom: 0,
               right: 0,
-              child: Container(
-                constraints: BoxConstraints(
-                  maxWidth: 639.0,
-                  maxHeight: 860.0,
-                ),
-                child: Image.asset("images/person.png"),
-              ),
+              child: PersonPic(),
             ),
           ],
         ),
