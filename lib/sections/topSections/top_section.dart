@@ -29,14 +29,14 @@ class TopSection extends StatelessWidget {
           top: kDefaultPadding,
         ),
         width: 1200.0,
-        child: LogoAndBlurWidget(size: size),
+        child: LogoAndBlurBox(size: size),
       ),
     );
   }
 }
 
-class LogoAndBlurWidget extends StatelessWidget {
-  const LogoAndBlurWidget({
+class LogoAndBlurBox extends StatelessWidget {
+  const LogoAndBlurBox({
     Key key,
     @required this.size,
   }) : super(key: key);
