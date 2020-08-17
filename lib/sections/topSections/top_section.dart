@@ -93,6 +93,11 @@ class _MenuState extends State<Menu> {
             selectedIndex = index;
           });
         },
+        onHover: (value) {
+          setState(() {
+            value ? hoverIndex = index : hoverIndex = selectedIndex;
+          });
+        },
         child: Container(
           constraints: BoxConstraints(minWidth: 122.0),
           height: 100.0,
@@ -106,6 +111,16 @@ class _MenuState extends State<Menu> {
                   color: kTextColor,
                 ),
               ),
+              // Hover
+              AnimatedPositioned(
+                duration: Duration(milliseconds: 200),
+                left: 0,
+                right: 0,
+                bottom:
+                    selectedIndex != index && hoverIndex == index ? -20 : -32,
+                child: Image.asset("images/Hover.png"),
+              ),
+              // Select
               AnimatedPositioned(
                 duration: Duration(milliseconds: 200),
                 left: 0,
