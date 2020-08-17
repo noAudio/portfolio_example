@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             TopSection(),
+            SizedBox(height: 100.0),
           ],
         ),
       ),

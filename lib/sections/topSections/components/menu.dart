@@ -31,6 +31,7 @@ class _MenuState extends State<Menu> {
           topLeft: Radius.circular(10),
           topRight: Radius.circular(10),
         ),
+        boxShadow: [kDefaultShadow],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
