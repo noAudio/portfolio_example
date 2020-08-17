@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_example/constants.dart';
 
-import 'components/glass_content.dart';
+import 'components/logo_blur_box.dart';
 import 'components/person_pic.dart';
 
 class TopSection extends StatelessWidget {
@@ -39,28 +39,6 @@ class TopSection extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class LogoAndBlurBox extends StatelessWidget {
-  const LogoAndBlurBox({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Image.asset("images/Logo.png"),
-        Spacer(),
-        GlassContent(size: size),
-        Spacer(flex: 3),
-      ],
     );
   }
 }
