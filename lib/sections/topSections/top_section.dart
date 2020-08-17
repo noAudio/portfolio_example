@@ -77,6 +77,29 @@ class _MenuState extends State<Menu> {
           topRight: Radius.circular(10),
         ),
       ),
+      child: Row(
+        children: List.generate(
+          menuItems.length,
+          (index) => buildMenuItem(index),
+        ),
+      ),
     );
   }
+
+  Widget buildMenuItem(int index) => Container(
+        constraints: BoxConstraints(minWidth: 122.0),
+        height: 100.0,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Text(
+              menuItems[index],
+              style: TextStyle(
+                fontSize: 20.0,
+                color: kTextColor,
+              ),
+            ),
+          ],
+        ),
+      );
 }
