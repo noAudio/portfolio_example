@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_example/constants.dart';
 
+import 'components/about_section_text.dart';
 import 'components/about_text_with_sign.dart';
 import 'components/experience_card.dart';
 
@@ -27,27 +28,6 @@ class AboutSection extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class AboutSectionText extends StatelessWidget {
-  const AboutSectionText({
-    Key key,
-    this.text,
-  }) : super(key: key);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      child: Text(
-        text,
-        style: TextStyle(
-            fontWeight: FontWeight.w200, color: kTextColor, height: 2.0),
       ),
     );
   }
