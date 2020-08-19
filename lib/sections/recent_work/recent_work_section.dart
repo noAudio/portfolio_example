@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_example/components/hireme_card.dart';
+import 'package:portfolio_example/constants.dart';
 
 class RecentWorkSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(top: kDefaultPadding * 6),
       width: double.infinity,
       // demo
       height: 600.0,
@@ -17,7 +19,10 @@ class RecentWorkSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-          HireMeCard(),
+          Transform.translate(
+            offset: Offset(0, -80),
+            child: HireMeCard(),
+          ),
         ],
       ),
     );
