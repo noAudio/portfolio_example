@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_example/components/section_title.dart';
 import 'package:portfolio_example/constants.dart';
+import 'package:portfolio_example/models/Service.dart';
 
 class ServiceSection extends StatelessWidget {
   @override
@@ -14,62 +16,88 @@ class ServiceSection extends StatelessWidget {
             subTitle: "My Strong Areas",
             color: Color(0xFFFF0000),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: List.generate(
+                services.length,
+                (index) => ServiceCard(
+                      index: index,
+                    )),
+          ),
         ],
       ),
     );
   }
 }
 
-class SectionTitle extends StatelessWidget {
-  const SectionTitle({
+class ServiceCard extends StatefulWidget {
+  const ServiceCard({
     Key key,
-    this.title,
-    this.subTitle,
-    this.color,
+    this.index,
   }) : super(key: key);
 
-  final String title, subTitle;
-  final Color color;
+  final int index;
+
+  @override
+  _ServiceCardState createState() => _ServiceCardState();
+}
+
+class _ServiceCardState extends State<ServiceCard> {
+  bool isHover = false;
+  Duration duration = Duration(milliseconds: 200);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
-      constraints: BoxConstraints(maxWidth: 1110.0),
-      height: 100.0,
-      child: Row(
-        children: [
-          Container(
-            margin: EdgeInsets.only(right: kDefaultPadding),
-            padding: EdgeInsets.only(bottom: 72.0),
-            width: 8.0,
-            height: 100.0,
-            color: Colors.black,
-            child: DecoratedBox(
+    return InkWell(
+      onTap: () {},
+      onHover: (value) {
+        setState(() {
+          isHover = value;
+        });
+      },
+      hoverColor: Colors.transparent,
+      child: AnimatedContainer(
+        duration: duration,
+        margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
+        height: 256.0,
+        width: 256.0,
+        decoration: BoxDecoration(
+          color: services[widget.index].color,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [if (isHover) kDefaultCardShadow],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AnimatedContainer(
+              duration: duration,
+              padding: EdgeInsets.all(kDefaultPadding * 1.5),
+              height: 120.0,
+              width: 120.0,
               decoration: BoxDecoration(
-                color: color,
+                color: Colors.white,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  if (!isHover)
+                    BoxShadow(
+                      offset: Offset(0, 20.0),
+                      blurRadius: 30.0,
+                      color: Colors.black.withOpacity(0.1),
+                    ),
+                ],
+              ),
+              child: Image.asset(
+                services[widget.index].image,
+                fit: BoxFit.fill,
               ),
             ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                subTitle,
-                style:
-                    TextStyle(fontWeight: FontWeight.w200, color: kTextColor),
-              ),
-              Text(
-                title,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline2
-                    .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
-              ),
-            ],
-          ),
-        ],
+            SizedBox(height: kDefaultPadding),
+            Text(
+              services[widget.index].title,
+              style: TextStyle(fontSize: 22.0),
+            ),
+          ],
+        ),
       ),
     );
   }
