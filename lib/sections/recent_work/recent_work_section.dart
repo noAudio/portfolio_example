@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_example/components/hireme_card.dart';
+import 'package:portfolio_example/components/section_title.dart';
 import 'package:portfolio_example/constants.dart';
 
 class RecentWorkSection extends StatelessWidget {
@@ -22,6 +23,11 @@ class RecentWorkSection extends StatelessWidget {
           Transform.translate(
             offset: Offset(0, -80),
             child: HireMeCard(),
+          ),
+          SectionTitle(
+            title: "Recent Works",
+            subTitle: "My Strong Areas",
+            color: Color(0xFFFFB100),
           ),
         ],
       ),
