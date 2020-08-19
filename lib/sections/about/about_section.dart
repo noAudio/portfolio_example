@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_example/constants.dart';
 
+import 'components/about_text_with_sign.dart';
+
 class AboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,32 +14,6 @@ class AboutSection extends StatelessWidget {
           AboutTextWithSign(),
         ],
       ),
-    );
-  }
-}
-
-class AboutTextWithSign extends StatelessWidget {
-  const AboutTextWithSign({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "About \nmy story",
-          style: Theme.of(context)
-              .textTheme
-              .headline2
-              .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        SizedBox(
-          height: kDefaultPadding * 2,
-        ),
-        Image.asset("images/sign.png"),
-      ],
     );
   }
 }
