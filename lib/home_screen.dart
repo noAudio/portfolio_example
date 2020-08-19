@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_example/sections/about/about_section.dart';
 import 'package:portfolio_example/sections/topSections/top_section.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,7 +10,8 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             TopSection(),
-            SizedBox(height: 100.0),
+            AboutSection(),
+            SizedBox(height: 500.0),
           ],
         ),
       ),
