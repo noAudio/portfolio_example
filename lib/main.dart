@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_example/constants.dart';
 import 'package:portfolio_example/home_screen.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        inputDecorationTheme: kDefaultInputDecorationTheme,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
