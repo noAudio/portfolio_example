@@ -7,9 +7,11 @@ class RecentWorkCard extends StatefulWidget {
   const RecentWorkCard({
     Key key,
     this.index,
+    this.press,
   }) : super(key: key);
 
   final int index;
+  final Function press;
 
   @override
   _RecentWorkCardState createState() => _RecentWorkCardState();
@@ -21,7 +23,7 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: widget.press,
       onHover: (value) {
         setState(() {
           isHover = value;
