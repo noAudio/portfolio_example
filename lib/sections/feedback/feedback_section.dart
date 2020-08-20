@@ -17,7 +17,12 @@ class FeedbackSection extends StatelessWidget {
             color: Color(0xFF00B1FF),
           ),
           SizedBox(height: kDefaultPadding),
-          FeedbackCard(),
+          Row(
+            children: List.generate(
+              feedback.length,
+              (index) => FeedbackCard(),
+            ),
+          ),
         ],
       ),
     );
