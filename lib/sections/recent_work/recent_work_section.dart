@@ -30,7 +30,16 @@ class RecentWorkSection extends StatelessWidget {
             subTitle: "My Strong Areas",
             color: Color(0xFFFFB100),
           ),
-          RecentWorkCard(),
+          SizedBox(height: kDefaultPadding * 5),
+          SizedBox(
+            width: 1110.0,
+            child: Wrap(
+              spacing: kDefaultPadding,
+              runSpacing: kDefaultPadding * 2,
+              children: List.generate(
+                  recentWorks.length, (index) => RecentWorkCard(index: index)),
+            ),
+          ),
           SizedBox(height: kDefaultPadding * 5),
         ],
       ),
