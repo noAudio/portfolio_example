@@ -3,7 +3,7 @@ import 'package:portfolio_example/models/Feedback.dart';
 
 import '../../../constants.dart';
 
-class FeedbackCard extends StatelessWidget {
+class FeedbackCard extends StatefulWidget {
   const FeedbackCard({
     Key key,
     this.index,
@@ -12,6 +12,11 @@ class FeedbackCard extends StatelessWidget {
   final int index;
 
   @override
+  _FeedbackCardState createState() => _FeedbackCardState();
+}
+
+class _FeedbackCardState extends State<FeedbackCard> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: kDefaultPadding * 3),
@@ -19,7 +24,7 @@ class FeedbackCard extends StatelessWidget {
       height: 350.0,
       width: 350.0,
       decoration: BoxDecoration(
-        color: feedback[index].color,
+        color: feedback[widget.index].color,
         borderRadius: BorderRadius.circular(10.0),
         boxShadow: [kDefaultCardShadow],
       ),
@@ -34,13 +39,13 @@ class FeedbackCard extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 10.0),
                 image: DecorationImage(
-                  image: AssetImage(feedback[index].userPic),
+                  image: AssetImage(feedback[widget.index].userPic),
                 ),
               ),
             ),
           ),
           Text(
-            feedback[index].review,
+            feedback[widget.index].review,
             style: TextStyle(
               color: kTextColor,
               fontSize: 18.0,
