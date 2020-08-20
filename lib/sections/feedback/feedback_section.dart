@@ -18,9 +18,10 @@ class FeedbackSection extends StatelessWidget {
           ),
           SizedBox(height: kDefaultPadding),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(
               feedback.length,
-              (index) => FeedbackCard(),
+              (index) => FeedbackCard(index: index),
             ),
           ),
         ],
@@ -32,7 +33,10 @@ class FeedbackSection extends StatelessWidget {
 class FeedbackCard extends StatelessWidget {
   const FeedbackCard({
     Key key,
+    this.index,
   }) : super(key: key);
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +46,7 @@ class FeedbackCard extends StatelessWidget {
       height: 350.0,
       width: 350.0,
       decoration: BoxDecoration(
-        color: feedback[0].color,
+        color: feedback[index].color,
         borderRadius: BorderRadius.circular(10.0),
         boxShadow: [kDefaultCardShadow],
       ),
@@ -57,13 +61,13 @@ class FeedbackCard extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 10.0),
                 image: DecorationImage(
-                  image: AssetImage(feedback[0].userPic),
+                  image: AssetImage(feedback[index].userPic),
                 ),
               ),
             ),
           ),
           Text(
-            feedback[0].review,
+            feedback[index].review,
             style: TextStyle(
               color: kTextColor,
               fontSize: 18.0,
