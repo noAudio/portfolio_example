@@ -58,7 +58,13 @@ class ContactBox extends StatelessWidget {
 class SocialCard extends StatelessWidget {
   const SocialCard({
     Key key,
+    this.iconSrc,
+    this.name,
+    this.color,
   }) : super(key: key);
+
+  final String iconSrc, name;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -69,19 +75,19 @@ class SocialCard extends StatelessWidget {
           horizontal: kDefaultPadding * 1.5,
         ),
         decoration: BoxDecoration(
-          color: Color(0xFFD9FFFC),
+          color: color,
           borderRadius: BorderRadius.circular(10.0),
           boxShadow: [kDefaultShadow],
         ),
         child: Row(
           children: [
             Image.asset(
-              "images/skype.png",
+              iconSrc,
               height: 80.0,
               width: 80.0,
             ),
             SizedBox(width: kDefaultPadding),
-            Text("My Twitter"),
+            Text(name),
           ],
         ),
       ),
