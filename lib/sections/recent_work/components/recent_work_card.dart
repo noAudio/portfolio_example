@@ -3,7 +3,7 @@ import 'package:portfolio_example/models/RecentWork.dart';
 
 import '../../../constants.dart';
 
-class RecentWorkCard extends StatelessWidget {
+class RecentWorkCard extends StatefulWidget {
   const RecentWorkCard({
     Key key,
     this.index,
@@ -11,6 +11,11 @@ class RecentWorkCard extends StatelessWidget {
 
   final int index;
 
+  @override
+  _RecentWorkCardState createState() => _RecentWorkCardState();
+}
+
+class _RecentWorkCardState extends State<RecentWorkCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +28,7 @@ class RecentWorkCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(recentWorks[index].image),
+          Image.asset(recentWorks[widget.index].image),
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -31,10 +36,10 @@ class RecentWorkCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(recentWorks[index].category.toUpperCase()),
+                  Text(recentWorks[widget.index].category.toUpperCase()),
                   SizedBox(height: kDefaultPadding / 2),
                   Text(
-                    recentWorks[index].title,
+                    recentWorks[widget.index].title,
                     style: Theme.of(context)
                         .textTheme
                         .headline5
