@@ -10,7 +10,7 @@ class RecentWorkSection extends StatelessWidget {
       margin: EdgeInsets.only(top: kDefaultPadding * 6),
       width: double.infinity,
       // demo
-      height: 600.0,
+      // height: 600.0,
       decoration: BoxDecoration(
         color: Color(0xFFF7E8FF).withOpacity(0.3),
         image: DecorationImage(
@@ -29,6 +29,16 @@ class RecentWorkSection extends StatelessWidget {
             subTitle: "My Strong Areas",
             color: Color(0xFFFFB100),
           ),
+          Container(
+            height: 320.0,
+            width: 540.0,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10.0),
+              boxShadow: [kDefaultCardShadow],
+            ),
+          ),
+          SizedBox(height: kDefaultPadding * 5),
         ],
       ),
     );
