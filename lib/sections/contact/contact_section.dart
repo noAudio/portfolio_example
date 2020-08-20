@@ -76,7 +76,7 @@ class ContactBox extends StatelessWidget {
   }
 }
 
-class SocialCard extends StatelessWidget {
+class SocialCard extends StatefulWidget {
   const SocialCard({
     Key key,
     this.iconSrc,
@@ -88,6 +88,11 @@ class SocialCard extends StatelessWidget {
   final Color color;
 
   @override
+  _SocialCardState createState() => _SocialCardState();
+}
+
+class _SocialCardState extends State<SocialCard> {
+  @override
   Widget build(BuildContext context) {
     return FittedBox(
       child: Container(
@@ -96,19 +101,19 @@ class SocialCard extends StatelessWidget {
           horizontal: kDefaultPadding * 1.5,
         ),
         decoration: BoxDecoration(
-          color: color,
+          color: widget.color,
           borderRadius: BorderRadius.circular(10.0),
           boxShadow: [kDefaultShadow],
         ),
         child: Row(
           children: [
             Image.asset(
-              iconSrc,
+              widget.iconSrc,
               height: 80.0,
               width: 80.0,
             ),
             SizedBox(width: kDefaultPadding),
-            Text(name),
+            Text(widget.name),
           ],
         ),
       ),
