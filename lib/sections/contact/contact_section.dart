@@ -57,16 +57,19 @@ class ContactBox extends StatelessWidget {
                 color: Color(0xFFD9FFFC),
                 iconSrc: "images/skype.png",
                 name: "My Twitter",
+                press: () {},
               ),
               SocialCard(
                 color: Color(0xFFE4FFC7),
                 iconSrc: "images/whatsapp.png",
                 name: "My Whatsapp",
+                press: () {},
               ),
               SocialCard(
                 color: Color(0xFFD9FFFC),
                 iconSrc: "images/messanger.png",
                 name: "My Messenger ID",
+                press: () {},
               ),
             ],
           )
@@ -82,39 +85,52 @@ class SocialCard extends StatefulWidget {
     this.iconSrc,
     this.name,
     this.color,
+    this.press,
   }) : super(key: key);
 
   final String iconSrc, name;
   final Color color;
+  final Function press;
 
   @override
   _SocialCardState createState() => _SocialCardState();
 }
 
 class _SocialCardState extends State<SocialCard> {
+  final Duration duration = Duration(milliseconds: 200);
+  bool isHover = false;
   @override
   Widget build(BuildContext context) {
     return FittedBox(
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          vertical: kDefaultPadding / 2,
-          horizontal: kDefaultPadding * 1.5,
-        ),
-        decoration: BoxDecoration(
-          color: widget.color,
-          borderRadius: BorderRadius.circular(10.0),
-          boxShadow: [kDefaultShadow],
-        ),
-        child: Row(
-          children: [
-            Image.asset(
-              widget.iconSrc,
-              height: 80.0,
-              width: 80.0,
-            ),
-            SizedBox(width: kDefaultPadding),
-            Text(widget.name),
-          ],
+      child: InkWell(
+        onTap: widget.press,
+        onHover: (value) {
+          setState(() {
+            isHover = value;
+          });
+        },
+        child: AnimatedContainer(
+          duration: duration,
+          padding: EdgeInsets.symmetric(
+            vertical: kDefaultPadding / 2,
+            horizontal: kDefaultPadding * 1.5,
+          ),
+          decoration: BoxDecoration(
+            color: widget.color,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [if (isHover) kDefaultShadow],
+          ),
+          child: Row(
+            children: [
+              Image.asset(
+                widget.iconSrc,
+                height: 80.0,
+                width: 80.0,
+              ),
+              SizedBox(width: kDefaultPadding),
+              Text(widget.name),
+            ],
+          ),
         ),
       ),
     );
