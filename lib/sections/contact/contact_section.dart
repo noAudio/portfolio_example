@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_example/components/default_button.dart';
 import 'package:portfolio_example/components/section_title.dart';
 import 'package:portfolio_example/constants.dart';
 
@@ -91,12 +92,67 @@ class ContactForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      child: Column(
+      child: Wrap(
+        spacing: kDefaultPadding * 2.5,
+        runSpacing: kDefaultPadding * 1.5,
         children: [
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: "Your Name",
-              hintText: "Enter your name...",
+          SizedBox(
+            width: 470.0,
+            child: TextFormField(
+              onChanged: (value) {},
+              decoration: InputDecoration(
+                labelText: "Your Name",
+                hintText: "Enter your name...",
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 470.0,
+            child: TextFormField(
+              onChanged: (value) {},
+              decoration: InputDecoration(
+                labelText: "Email Address",
+                hintText: "Enter your email...",
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 470.0,
+            child: TextFormField(
+              onChanged: (value) {},
+              decoration: InputDecoration(
+                labelText: "Project Type",
+                hintText: "Select project type...",
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 470.0,
+            child: TextFormField(
+              onChanged: (value) {},
+              decoration: InputDecoration(
+                labelText: "Project Budget",
+                hintText: "Enter your budget...",
+              ),
+            ),
+          ),
+          SizedBox(
+            child: TextFormField(
+              onChanged: (value) {},
+              decoration: InputDecoration(
+                labelText: "Description",
+                hintText: "Add more details here",
+              ),
+            ),
+          ),
+          SizedBox(height: kDefaultPadding * 2),
+          Center(
+            child: FittedBox(
+              child: DefaultButton(
+                imageSrc: "images/contact_icon.png",
+                text: "Contact Me!",
+                press: () {},
+              ),
             ),
           ),
         ],
