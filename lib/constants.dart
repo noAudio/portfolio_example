@@ -19,7 +19,7 @@ final kDefaultCardShadow = BoxShadow(
 
 // Textfield Design
 final kDefaultOutlineInputBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(50.0),
+  // borderRadius: BorderRadius.circular(50.0),
   borderSide: BorderSide(
     color: Color(0xFFCEE4FD),
   ),
