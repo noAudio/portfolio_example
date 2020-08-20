@@ -74,7 +74,31 @@ class ContactBox extends StatelessWidget {
                 press: () {},
               ),
             ],
-          )
+          ),
+          SizedBox(height: kDefaultPadding * 2),
+          ContactForm(),
+        ],
+      ),
+    );
+  }
+}
+
+class ContactForm extends StatelessWidget {
+  const ContactForm({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      child: Column(
+        children: [
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: "Your Name",
+              hintText: "Enter your name...",
+            ),
+          ),
         ],
       ),
     );
