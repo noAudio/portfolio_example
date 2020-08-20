@@ -41,7 +41,10 @@ class RecentWorkSection extends StatelessWidget {
 class RecentWorkCard extends StatelessWidget {
   const RecentWorkCard({
     Key key,
+    this.index,
   }) : super(key: key);
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +58,7 @@ class RecentWorkCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(recentWorks[0].image),
+          Image.asset(recentWorks[index].image),
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -63,10 +66,10 @@ class RecentWorkCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(recentWorks[0].category.toUpperCase()),
+                  Text(recentWorks[index].category.toUpperCase()),
                   SizedBox(height: kDefaultPadding / 2),
                   Text(
-                    recentWorks[0].title,
+                    recentWorks[index].title,
                     style: Theme.of(context)
                         .textTheme
                         .headline5
