@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_example/components/hireme_card.dart';
 import 'package:portfolio_example/components/section_title.dart';
 import 'package:portfolio_example/constants.dart';
+import 'package:portfolio_example/models/RecentWork.dart';
 
 class RecentWorkSection extends StatelessWidget {
   @override
@@ -29,16 +30,57 @@ class RecentWorkSection extends StatelessWidget {
             subTitle: "My Strong Areas",
             color: Color(0xFFFFB100),
           ),
-          Container(
-            height: 320.0,
-            width: 540.0,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10.0),
-              boxShadow: [kDefaultCardShadow],
+          RecentWorkCard(),
+          SizedBox(height: kDefaultPadding * 5),
+        ],
+      ),
+    );
+  }
+}
+
+class RecentWorkCard extends StatelessWidget {
+  const RecentWorkCard({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 320.0,
+      width: 540.0,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: [kDefaultCardShadow],
+      ),
+      child: Row(
+        children: [
+          Image.asset(recentWorks[0].image),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(recentWorks[0].category.toUpperCase()),
+                  SizedBox(height: kDefaultPadding / 2),
+                  Text(
+                    recentWorks[0].title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline5
+                        .copyWith(height: 1.5),
+                  ),
+                  SizedBox(height: kDefaultPadding),
+                  Text(
+                    "View Default Padding",
+                    style: TextStyle(decoration: TextDecoration.underline),
+                  ),
+                ],
+              ),
             ),
           ),
-          SizedBox(height: kDefaultPadding * 5),
         ],
       ),
     );
