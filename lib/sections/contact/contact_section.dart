@@ -49,7 +49,28 @@ class ContactBox extends StatelessWidget {
         ),
       ),
       child: Column(
-        children: [SocialCard()],
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SocialCard(
+                color: Color(0xFFD9FFFC),
+                iconSrc: "images/skype.png",
+                name: "My Twitter",
+              ),
+              SocialCard(
+                color: Color(0xFFE4FFC7),
+                iconSrc: "images/whatsapp.png",
+                name: "My Whatsapp",
+              ),
+              SocialCard(
+                color: Color(0xFFD9FFFC),
+                iconSrc: "images/messanger.png",
+                name: "My Messenger ID",
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
