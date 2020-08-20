@@ -49,7 +49,41 @@ class ContactBox extends StatelessWidget {
         ),
       ),
       child: Column(
-        children: [],
+        children: [SocialCard()],
+      ),
+    );
+  }
+}
+
+class SocialCard extends StatelessWidget {
+  const SocialCard({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FittedBox(
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          vertical: kDefaultPadding / 2,
+          horizontal: kDefaultPadding * 1.5,
+        ),
+        decoration: BoxDecoration(
+          color: Color(0xFFD9FFFC),
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [kDefaultShadow],
+        ),
+        child: Row(
+          children: [
+            Image.asset(
+              "images/skype.png",
+              height: 80.0,
+              width: 80.0,
+            ),
+            SizedBox(width: kDefaultPadding),
+            Text("My Twitter"),
+          ],
+        ),
       ),
     );
   }
